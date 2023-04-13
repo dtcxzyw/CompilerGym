@@ -113,7 +113,7 @@ cg_py_test(
     tests::test_main
 )
 
-py_test(
+cg_py_test(
   NAME fork_regression_test
   SRCS fork_regression_test.py
   DEPS

@@ -50,7 +50,7 @@ def test_service_version(env: MlirEnv):
 
 
 def test_compiler_version(env: MlirEnv):
-    assert env.compiler_version.startswith("LLVM 14.")
+    assert env.compiler_version.startswith("LLVM 16.")
 
 
 def test_action_spaces_names(env: MlirEnv):

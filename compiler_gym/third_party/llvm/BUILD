@@ -38,7 +38,7 @@ cc_binary(
     visibility = ["//visibility:public"],
     deps = [
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -62,11 +62,11 @@ genrule(
 genrule(
     name = "libLLVMPolly",
     srcs = [
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
     ],
     outs = ["libLLVMPolly.so"],
-    cmd = "cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
+    cmd = "cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
     visibility = ["//visibility:public"],
 )
 
@@ -87,7 +87,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -129,10 +129,10 @@ cc_binary(
 #     ] + select({
 #         "@llvm//:darwin": [],
 #         "//conditions:default": [
-#             "lib/clang/10.0.0/lib/linux/libclang_rt.asan-x86_64.a",
-#             "lib/clang/10.0.0/lib/linux/libclang_rt.tsan-x86_64.a",
-#             "lib/clang/10.0.0/lib/linux/libclang_rt.msan-x86_64.a",
-#             "lib/clang/10.0.0/lib/linux/libclang_rt.ubsan_standalone-x86_64.a",
+#             "lib/clang/16.0.1/lib/linux/libclang_rt.asan-x86_64.a",
+#             "lib/clang/16.0.1/lib/linux/libclang_rt.tsan-x86_64.a",
+#             "lib/clang/16.0.1/lib/linux/libclang_rt.msan-x86_64.a",
+#             "lib/clang/16.0.1/lib/linux/libclang_rt.ubsan_standalone-x86_64.a",
 #         ],
 #     }),
 # )
@@ -148,10 +148,10 @@ cc_binary(
 #     name = "make_clang",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:clang",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
 #         ],
 #     }),
 #     outs = ["bin/clang"],
@@ -162,10 +162,10 @@ cc_binary(
 #     name = "make_lli",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:lli",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:lli",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:lli",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:lli",
 #         ],
 #     }),
 #     outs = ["bin/lli"],
@@ -176,10 +176,10 @@ cc_binary(
 #     name = "make_llc",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llc",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llc",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llc",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llc",
 #         ],
 #     }),
 #     outs = ["bin/llc"],
@@ -190,10 +190,10 @@ cc_binary(
 #     name = "make_llvm-as",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-as",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-as",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-as",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-as",
 #         ],
 #     }),
 #     outs = ["bin/llvm-as"],
@@ -204,10 +204,10 @@ cc_binary(
 #     name = "make_llvm-mca",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-mca",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-mca",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-mca",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-mca",
 #         ],
 #     }),
 #     outs = ["bin/llvm-mca"],
@@ -218,10 +218,10 @@ cc_binary(
 #     name = "make_llvm-bcanalyzer",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-bcanalyzer",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-bcanalyzer",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-bcanalyzer",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-bcanalyzer",
 #         ],
 #     }),
 #     outs = ["bin/llvm-bcanalyzer"],
@@ -232,10 +232,10 @@ cc_binary(
 #     name = "make_llvm-config",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-config",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-config",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-config",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-config",
 #         ],
 #     }),
 #     outs = ["bin/llvm-config"],
@@ -246,10 +246,10 @@ cc_binary(
 #     name = "make_llvm-dis",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-dis",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-dis",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-dis",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-dis",
 #         ],
 #     }),
 #     outs = ["bin/llvm-dis"],
@@ -260,10 +260,10 @@ cc_binary(
 #     name = "make_llvm-diff",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-diff",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-diff",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-diff",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-diff",
 #         ],
 #     }),
 #     outs = ["bin/llvm-diff"],
@@ -274,10 +274,10 @@ cc_binary(
 #     name = "make_llvm-link",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-link",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-link",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-link",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-link",
 #         ],
 #     }),
 #     outs = ["bin/llvm-link"],
@@ -288,10 +288,10 @@ cc_binary(
 #     name = "make_llvm-size",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-size",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-size",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-size",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-size",
 #         ],
 #     }),
 #     outs = ["bin/llvm-size"],
@@ -302,10 +302,10 @@ cc_binary(
 #     name = "make_opt",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:opt",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:opt",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:opt",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:opt",
 #         ],
 #     }),
 #     outs = ["bin/opt"],
@@ -316,10 +316,10 @@ cc_binary(
 #     name = "make_llvm-stress",
 #     srcs = select({
 #         "@llvm//:darwin": [
-#             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-stress",
+#             "@clang-llvm-16.0.1-x86_64-apple-darwin//:llvm-stress",
 #         ],
 #         "//conditions:default": [
-#             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-stress",
+#             "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:llvm-stress",
 #         ],
 #     }),
 #     outs = ["bin/llvm-stress"],
@@ -329,39 +329,39 @@ cc_binary(
 # genrule(
 #     name = "make_libclang_rt.asan-x86_64.a",
 #     srcs = [
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
 #     ],
-#     outs = ["lib/clang/10.0.0/lib/linux/libclang_rt.asan-x86_64.a"],
-#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/10.0.0/lib/linux/libclang_rt.asan-x86_64.a $@",
+#     outs = ["lib/clang/16.0.1/lib/linux/libclang_rt.asan-x86_64.a"],
+#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/16.0.1/lib/linux/libclang_rt.asan-x86_64.a $@",
 # )
 #
 # genrule(
 #     name = "make_libclang_rt.tsan-x86_64.a",
 #     srcs = [
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
 #     ],
-#     outs = ["lib/clang/10.0.0/lib/linux/libclang_rt.tsan-x86_64.a"],
-#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/10.0.0/lib/linux/libclang_rt.tsan-x86_64.a $@",
+#     outs = ["lib/clang/16.0.1/lib/linux/libclang_rt.tsan-x86_64.a"],
+#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/16.0.1/lib/linux/libclang_rt.tsan-x86_64.a $@",
 # )
 #
 # genrule(
 #     name = "make_libclang_rt.msan-x86_64.a",
 #     srcs = [
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
 #     ],
-#     outs = ["lib/clang/10.0.0/lib/linux/libclang_rt.msan-x86_64.a"],
-#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/10.0.0/lib/linux/libclang_rt.msan-x86_64.a $@",
+#     outs = ["lib/clang/16.0.1/lib/linux/libclang_rt.msan-x86_64.a"],
+#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/16.0.1/lib/linux/libclang_rt.msan-x86_64.a $@",
 # )
 #
 # genrule(
 #     name = "make_libclang_rt.ubsan_standalone-x86_64.a",
 #     srcs = [
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-#         "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+#         "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
 #     ],
-#     outs = ["lib/clang/10.0.0/lib/linux/libclang_rt.ubsan_standalone-x86_64.a"],
-#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/10.0.0/lib/linux/libclang_rt.ubsan_standalone-x86_64.a $@",
+#     outs = ["lib/clang/16.0.1/lib/linux/libclang_rt.ubsan_standalone-x86_64.a"],
+#     cmd = "mkdir -p $$(dirname $@) && cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/clang/16.0.1/lib/linux/libclang_rt.ubsan_standalone-x86_64.a $@",
 # )

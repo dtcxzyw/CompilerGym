@@ -8,9 +8,6 @@ from common import Pass
 # A set of headers that must be included to use the generated pass list.
 LLVM_ACTION_INCLUDES = {
     "llvm/LinkAllPasses.h",
-    # A handle of coroutine utility passes are not pulled in by the
-    # LinkAllPasses.h header.
-    "llvm/Transforms/Coroutines.h",
 }
 
 # A mapping from the name of a pass as defined in a INITIALIZE_PASS(name, ...)

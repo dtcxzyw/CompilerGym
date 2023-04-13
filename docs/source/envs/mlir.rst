@@ -120,7 +120,7 @@ action space to use only OpenAI Gym spaces.
 Installation
 ~~~~~~~~~~~~
 
-The environment requires LLVM 14 and it can be built only with CMake, not with
+The environment requires LLVM 16 and it can be built only with CMake, not with
 Bazel. It is incompatible with the LLVM environment due to LLVM version
 conflict. To enable the MLIR environment use these CMake variables.
 
@@ -133,7 +133,7 @@ This configuration will include the MLIR environment in the `compiler_gym`
 Python package. The package will be available under
 `${CMAKE_BINARY_DIR}/py_pkg/dist`.
 
-The build can automatically download and build the LLVM 14 dependency.
+The build can automatically download and build the LLVM 16 dependency.
 Instead you can build against a prebuilt LLVM.
 To do that pass to CMake these variables
 
@@ -142,15 +142,15 @@ To do that pass to CMake these variables
     COMPILER_GYM_LLVM_PROVIDER=external
 
     # path to LLVMConfig.cmake directory.
-    # e.g. clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/llvm
+    # e.g. clang+llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/llvm
     LLVM_DIR
 
     # path to MLIRConfig.cmake directory.
-    # e.g. clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/mlir
+    # e.g. clang+llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/mlir
     MLIR_DIR
 
     # path to ClangConfig.cmake directory
-    # e.g. clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/clang
+    # e.g. clang+llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04/lib/cmake/clang
     Clang_DIR
 
 Example Usage

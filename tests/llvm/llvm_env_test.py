@@ -47,7 +47,7 @@ def test_service_version(env: LlvmEnv):
 
 
 def test_compiler_version(env: LlvmEnv):
-    assert env.compiler_version.startswith("10.0.0")
+    assert env.compiler_version.startswith("16.0.1")
 
 
 def test_action_space_names(env: LlvmEnv, action_names: List[str]):

@@ -34,19 +34,19 @@ endif()
 
 file(
     APPEND
-    "${CMAKE_CURRENT_BINARY_DIR}/llvm-14_initial_cache.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/llvm-16_initial_cache.cmake"
     "set(LLVM_ENABLE_PROJECTS \"clang;mlir\" CACHE STRING \"\" FORCE)\n"
 )
 
 externalproject_add(
     llvm
-    PREFIX "${CMAKE_CURRENT_BINARY_DIR}/llvm-14"
+    PREFIX "${CMAKE_CURRENT_BINARY_DIR}/llvm-16"
     GIT_REPOSITORY "https://github.com/llvm/llvm-project.git"
     GIT_TAG
-        329fda39c507e8740978d10458451dcdb21563be # tag: llvmorg-14.0.0
+        cd89023f797900e4492da58b7bed36f702120011 # tag: llvmorg-16.0.1
     SOURCE_SUBDIR llvm
     CMAKE_ARGS
-        -G Ninja -C "${CMAKE_CURRENT_BINARY_DIR}/llvm-14_initial_cache.cmake"
+        -G Ninja -C "${CMAKE_CURRENT_BINARY_DIR}/llvm-16_initial_cache.cmake"
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
         -DLLVM_ABI_BREAKING_CHECKS=FORCE_OFF
         -DLLVM_PARALLEL_LINK_JOBS=${_LINK_JOBS}

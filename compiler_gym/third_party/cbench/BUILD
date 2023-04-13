@@ -7,7 +7,7 @@ load("@rules_python//python:defs.bzl", "py_binary")
 genrule(
     name = "cbench_tar",
     srcs = [":cbench"],
-    outs = ["llvm_bitcodes-10.0.0-cbench-v1.tar.bz2"],
+    outs = ["llvm_bitcodes-16.0.1-cbench-v1.tar.bz2"],
     cmd = "tar cjfh $@ -C $(@D) cbench-v1",
     visibility = ["//visibility:public"],
 )

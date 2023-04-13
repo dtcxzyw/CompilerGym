@@ -18,6 +18,6 @@ cc_binary(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )

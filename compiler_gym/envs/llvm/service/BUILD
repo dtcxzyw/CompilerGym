@@ -49,11 +49,11 @@ genrule(
 genrule(
     name = "libLLVMPolly",
     srcs = [
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
     ],
     outs = ["libLLVMPolly.so"],
-    cmd = "cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
+    cmd = "cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
     visibility = ["//visibility:public"],
 )
 
@@ -78,7 +78,7 @@ cc_library(
         "ActionSpace.h",
     ],
     deps = [
-        "//compiler_gym/envs/llvm/service/passes/10.0.0:headers",
+        "//compiler_gym/envs/llvm/service/passes/16.0.1:headers",
         "//compiler_gym/service/proto:compiler_gym_service_cc",
         "//compiler_gym/util:EnumUtil",
         "//compiler_gym/util:Unreachable",
@@ -101,7 +101,7 @@ cc_library(
         "@com_github_grpc_grpc//:grpc++",
         "@fmt",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -133,7 +133,7 @@ cc_library(
         "@com_github_grpc_grpc//:grpc++",
         "@fmt",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -163,7 +163,7 @@ cc_binary(
         "//compiler_gym/service/proto:compiler_gym_service_cc",
         "@boost//:filesystem",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@magic_enum",
     ],
 )
@@ -201,7 +201,7 @@ cc_library(
         "@com_github_grpc_grpc//:grpc++",
         "@fmt",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@magic_enum",
     ],
 )
@@ -228,7 +228,7 @@ cc_binary(
         "-std=c++17",
     ],
     deps = [
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -255,7 +255,7 @@ cc_library(
     srcs = ["LlvmSession.cc"],
     hdrs = [
         "LlvmSession.h",
-        "//compiler_gym/envs/llvm/service/passes/10.0.0:headers",
+        "//compiler_gym/envs/llvm/service/passes/16.0.1:headers",
     ],
     copts = [
         "-DGOOGLE_PROTOBUF_NO_RTTI",
@@ -279,7 +279,7 @@ cc_library(
         "@boost//:process",
         "@fmt",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@magic_enum",
         "@nlohmann_json//:json",
         "@org_pytorch_cpuinfo//:cpuinfo",
@@ -303,7 +303,7 @@ cc_library(
         "//compiler_gym/util:GrpcStatusMacros",
         "@boost//:filesystem",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@magic_enum",
         "@nlohmann_json//:json",
         "@org_pytorch_cpuinfo//:cpuinfo",
@@ -359,7 +359,7 @@ cc_binary(
         "//compiler_gym/util:GrpcStatusMacros",
         "@boost//:filesystem",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@magic_enum",
     ],
 )

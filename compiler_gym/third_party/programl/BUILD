@@ -15,7 +15,7 @@ cc_binary(
     visibility = ["//visibility:public"],
     deps = [
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@nlohmann_json//:json",
         "@programl//programl/graph/format:node_link_graph",
         "@programl//programl/ir/llvm:llvm-10",

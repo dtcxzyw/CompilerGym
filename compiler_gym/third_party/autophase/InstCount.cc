@@ -106,7 +106,7 @@ void InstCount::visitBasicBlock(BasicBlock& BB) {
       }
     }
     if (isa<CallInst>(I)) {
-      if (cast<CallInst>(I).getNumArgOperands() > 4) {
+      if (cast<CallInst>(I).arg_size() > 4) {
         callLargeNumArgs++;
       }
       auto calledFunction = cast<CallInst>(I).getCalledFunction();

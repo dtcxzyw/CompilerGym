@@ -14,7 +14,9 @@
 #include "llvm/IR/IRPrintingPasses.h"
 #include "llvm/IR/LegacyPassManager.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/PassManager.h"
 #include "llvm/IR/Verifier.h"
+#include "llvm/IRPrinter/IRPrintingPasses.h"
 #include "llvm/IRReader/IRReader.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/Error.h"
@@ -23,6 +25,9 @@
 #include "llvm/Support/SystemUtils.h"
 #include "llvm/Support/ToolOutputFile.h"
 #include "llvm/Transforms/IPO.h"
+#include "llvm/Transforms/IPO/ExtractGV.h"
+#include "llvm/Transforms/IPO/StripDeadPrototypes.h"
+#include "llvm/Transforms/IPO/StripSymbols.h"
 
 using namespace llvm;
 
@@ -135,10 +140,10 @@ int main(int argc, char** argv) {
     // Set the comment
     comment = "KeeperIndex = " + std::to_string(keeperIndex);
   }
-  legacy::PassManager Passes;
-  Passes.add(createGVExtractionPass(GVs));      // Extract the one function
-  Passes.add(createStripDeadDebugInfoPass());   // Remove dead debug info
-  Passes.add(createStripDeadPrototypesPass());  // Remove dead func decls
+  ModulePassManager PM;
+  PM.addPass(ExtractGVPass(GVs));         // Extract the one function
+  PM.addPass(StripDeadDebugInfoPass());   // Remove dead debug info
+  PM.addPass(StripDeadPrototypesPass());  // Remove dead func decls
 
   if (verifyModule(*Module, &errs()))
     return 1;
@@ -153,11 +158,13 @@ int main(int argc, char** argv) {
 
   if (OutputAssembly) {
     Out.os() << "; " << comment << '\n';
-    Passes.add(createPrintModulePass(Out.os(), "", PreserveAssemblyUseListOrder));
+    PM.addPass(PrintModulePass(Out.os(), "", PreserveAssemblyUseListOrder));
   } else if (Force || !CheckBitcodeOutputToConsole(Out.os())) {
-    Passes.add(createBitcodeWriterPass(Out.os(), PreserveBitcodeUseListOrder));
+    PM.addPass(BitcodeWriterPass(Out.os(), PreserveBitcodeUseListOrder));
   }
-  Passes.run(*Module);
+
+  ModuleAnalysisManager MAM;
+  PM.run(*Module, MAM);
 
   // Declare success.
   Out.keep();

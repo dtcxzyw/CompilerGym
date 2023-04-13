@@ -30,7 +30,7 @@ cg_cc_library(
   SRCS
     "ActionSpace.cc"
   DEPS
-    compiler_gym::envs::llvm::service::passes::10.0.0::headers
+    compiler_gym::envs::llvm::service::passes::16.0.1::headers
     compiler_gym::service::proto::compiler_gym_service_cc
     compiler_gym::util::EnumUtil
     compiler_gym::util::Unreachable
@@ -169,7 +169,7 @@ cg_cc_library(
   PUBLIC
 )
 
-llvm_map_components_to_libnames(_LLVM_LIBS support core irreader ipo)
+llvm_map_components_to_libnames(_LLVM_LIBS support core irreader ipo irprinter)
 cg_cc_binary(
   NAME llvm-extract-one
   SRCS LlvmExtractOne.cc
@@ -204,7 +204,7 @@ cg_cc_library(
     ::Cost
     ::Observation
     ::ObservationSpaces
-    compiler_gym::envs::llvm::service::passes::10.0.0::headers
+    compiler_gym::envs::llvm::service::passes::16.0.1::headers
     compiler_gym::service::CompilationSession
     compiler_gym::service::proto::compiler_gym_service_cc_grpc
     compiler_gym::third_party::autophase::InstCount

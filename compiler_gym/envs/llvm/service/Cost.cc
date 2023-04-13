@@ -4,6 +4,13 @@
 // LICENSE file in the root directory of this source tree.
 #include "compiler_gym/envs/llvm/service/Cost.h"
 
+#include "llvm/Bitcode/BitcodeWriter.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Transforms/IPO.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+#include "llvm/Transforms/Utils/Cloning.h"
+// Include LLVM headers first
+
 #include <fmt/format.h>
 #include <glog/logging.h>
 #include <grpcpp/grpcpp.h>
@@ -19,11 +26,6 @@
 #include "compiler_gym/util/RunfilesPath.h"
 #include "compiler_gym/util/Subprocess.h"
 #include "compiler_gym/util/Unreachable.h"
-#include "llvm/Bitcode/BitcodeWriter.h"
-#include "llvm/IR/LegacyPassManager.h"
-#include "llvm/Transforms/IPO.h"
-#include "llvm/Transforms/IPO/PassManagerBuilder.h"
-#include "llvm/Transforms/Utils/Cloning.h"
 
 namespace fs = boost::filesystem;
 namespace bp = boost::process;

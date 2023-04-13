@@ -23,7 +23,7 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -51,7 +51,7 @@ cc_binary(
     deps = [
         ":InstCount",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -75,10 +75,10 @@ genrule(
 genrule(
     name = "libLLVMPolly",
     srcs = [
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files",
-        "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:all_files",
+        "@clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang",
     ],
     outs = ["libLLVMPolly.so"],
-    cmd = "cp $$(dirname $(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
+    cmd = "cp $$(dirname $(location @clang-llvm-16.0.1-x86_64-linux-gnu-ubuntu-18.04//:clang))/../lib/LLVMPolly.so $@",
     visibility = ["//visibility:public"],
 )

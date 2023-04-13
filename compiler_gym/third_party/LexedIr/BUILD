@@ -31,7 +31,7 @@ cc_binary(
     deps = [
         "LexedIr",
         "@glog",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )
 
@@ -73,6 +73,6 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
     ],
 )

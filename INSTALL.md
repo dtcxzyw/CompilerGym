@@ -170,8 +170,8 @@ Additional optional configuration arguments:
 
 By default, CompilerGym builds LLVM from source. This takes a long time and a
 lot of compute resources. To prevent this, download a pre-compiled clang+llvm
-release of LLVM 10.0.0 from the [llvm-project releases
-page](https://github.com/llvm/llvm-project/releases/tag/llvmorg-10.0.0), unpack
+release of LLVM 16.0.1 from the [llvm-project releases
+page](https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.1), unpack
 it, and pass path of the `lib/cmake/llvm` subdirectory in the archive you just
 extracted to `LLVM_DIR`:
 
@@ -181,4 +181,4 @@ $ cmake ... \
     -DLLVM_DIR=/path/to/llvm/lib/cmake/llvm
 ```
 
-⚠️ CompilerGym requires exactly LLVM 10.0.0.
+⚠️ CompilerGym requires exactly LLVM 16.0.1.

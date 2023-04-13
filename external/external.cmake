@@ -119,7 +119,7 @@ set_property(
     PROPERTY STRINGS "internal" "external"
 )
 
-# === LLVM 10.0.0 ===
+# === LLVM 16.0.1 ===
 
 if(COMPILER_GYM_ENABLE_LLVM_ENV)
     if(COMPILER_GYM_LLVM_PROVIDER STREQUAL "internal")
@@ -129,20 +129,20 @@ if(COMPILER_GYM_ENABLE_LLVM_ENV)
           CONFIG_ARGS   "-DCOMPILER_GYM_LLVM_PROVIDER=${COMPILER_GYM_LLVM_PROVIDER}"
         )
     endif()
-    find_package(LLVM 10.0.0 EXACT REQUIRED)
+    find_package(LLVM 16.0.1 EXACT REQUIRED)
     message("Using LLVM version ${LLVM_VERSION} from ${LLVM_DIR}")
 endif()
 
-# === LLVM 14 ===
+# === LLVM 16.0.1 ===
 
 if(COMPILER_GYM_ENABLE_MLIR_ENV)
     if(COMPILER_GYM_LLVM_PROVIDER STREQUAL "internal")
         build_external_cmake_project(
-            NAME llvm-14
-            SRC_DIR   "${CMAKE_CURRENT_LIST_DIR}/llvm-14"
+            NAME llvm-16
+            SRC_DIR   "${CMAKE_CURRENT_LIST_DIR}/llvm-16"
             CONFIG_ARGS   "-DCOMPILER_GYM_LLVM_PROVIDER=${COMPILER_GYM_LLVM_PROVIDER}"
         )
-        find_package(LLVM 14.0.0 EXACT REQUIRED)
+        find_package(LLVM 16.0.1 EXACT REQUIRED)
     else()
         find_package(LLVM REQUIRED)
     endif()

@@ -19,7 +19,7 @@ cc_binary(
     visibility = ["//visibility:public"],
     deps = [
         "//compiler_gym/third_party/LLVM-Canon:IRCanonicalizer",
-        "@llvm//10.0.0",
+        "@llvm//16.0.1",
         "@nlohmann_json//:json",
     ],
 )
